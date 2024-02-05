@@ -1,15 +1,9 @@
 import mariadb
-
+import mybot
 
 def dbadd_user(uid, uname):
     try:
-        conn = mariadb.connect(
-            user='root',
-            password='kachalka',
-            host='127.0.0.1',
-            port=3306,
-            database='kachalka'
-        )
+        conn = mybot.conn
         cur = conn.cursor()
         values = (uid, uname)
         mariadb_insert_query = 'INSERT INTO users (tele_id, name) VALUES (%s, %s)'
@@ -27,13 +21,7 @@ def dbadd_user(uid, uname):
 
 def dbadd_exercise_title(dbtitle, uid, uname):
     try:
-        conn = mariadb.connect(
-            user='root',
-            password='kachalka',
-            host='127.0.0.1',
-            port=3306,
-            database='kachalka'
-        )
+        conn = mybot.conn
         cur = conn.cursor()
         value = (uid, uname, dbtitle)
         mariadb_insert_query = 'INSERT INTO users (tele_id, name, exercise_title) VALUES (?, ?, ?)'
@@ -51,13 +39,7 @@ def dbadd_exercise_title(dbtitle, uid, uname):
 
 def dbadd_exercise_name(dbtitle, uid, uname, dbexercise_name):
     try:
-        conn = mariadb.connect(
-            user='root',
-            password='kachalka',
-            host='127.0.0.1',
-            port=3306,
-            database='kachalka'
-        )
+        conn = mybot.conn
         cur = conn.cursor()
         value = []
         for name in dbexercise_name:
@@ -78,13 +60,7 @@ def dbadd_exercise_name(dbtitle, uid, uname, dbexercise_name):
 
 def dbget_exercise_name(dbtitle, uid):
     try:
-        conn = mariadb.connect(
-            user='root',
-            password='kachalka',
-            host='127.0.0.1',
-            port=3306,
-            database='kachalka'
-        )
+        conn = mybot.conn
         cur = conn.cursor()
         value = (dbtitle, uid)
         text = []
