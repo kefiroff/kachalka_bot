@@ -1,6 +1,7 @@
 import telebot
 import db
-bot = telebot.TeleBot("6565609556:AAFNrI9AkyE18D56J-xeN4LYzwvrtfUttE4", parse_mode=None)
+import mybot
+bot = mybot.bot
 
 
 def add_user(id, name):
